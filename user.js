@@ -7,7 +7,7 @@ var User = Waterline.Collection.extend({
   schema: true,
 
   // Define an adapter to use
-  adapter: 'postgresql',
+  adapter: 'mongodb',
 
   // Define attributes for this collection
   attributes: {
