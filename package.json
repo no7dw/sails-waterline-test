@@ -8,12 +8,14 @@
   "dependencies": {
     "body-parser": "^1.12.4",
     "express": "^4.12.3",
+    "include-all": "^0.1.6",
     "lodash": "^3.8.0",
     "method-override": "^2.3.3",
     "mongodb": "^2.0.25",
     "sails-disk": "^0.10.7",
     "sails-mongo": "^0.10.4",
     "sails-mysql": "^0.10.11",
+    "underscore": "^1.8.3",
     "waterline": "^0.10.21"
   },
   "devDependencies": {},
