@@ -13,6 +13,7 @@
     "mongodb": "^2.0.25",
     "sails-disk": "^0.10.7",
     "sails-mongo": "^0.10.4",
+    "sails-mysql": "^0.10.11",
     "waterline": "^0.10.21"
   },
   "devDependencies": {},

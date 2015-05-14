@@ -72,7 +72,7 @@ var config = {
 
 var User = Waterline.Collection.extend({
 
-  identity: 'User',
+  identity: 'user',
   connection: 'devMongodb',
 
   attributes: {
@@ -115,7 +115,7 @@ var User = Waterline.Collection.extend({
 
 var Portfolio_provide = Waterline.Collection.extend({
 
-  identity: 'Portfolio_provide',
+  identity: 'portfolio_provide',
   connection: 'devMongodb',
 
   attributes: {
@@ -156,28 +156,28 @@ app.use(methodOverride());
 // Build Express Routes (CRUD routes for /users)
 
 app.get('/users', function(req, res) {
-  app.models.User.find().exec(function(err, models) {
+  app.models.user.find().exec(function(err, models) {
     if(err) return res.json({ err: err }, 500);
     res.json(models);
   });
 });
 
 app.post('/users', function(req, res) {
-  app.models.User.create(req.body, function(err, model) {
+  app.models.user.create(req.body, function(err, model) {
     if(err) return res.json({ err: err }, 500);
     res.json(model);
   });
 });
 
 app.get('/users/:id', function(req, res) {
-  app.models.User.findOne({ id: req.params.id }, function(err, model) {
+  app.models.user.findOne({ id: req.params.id }, function(err, model) {
     if(err) return res.json({ err: err }, 500);
     res.json(model);
   });
 });
 
 app.delete('/users/:id', function(req, res) {
-  app.models.User.destroy({ id: req.params.id }, function(err) {
+  app.models.user.destroy({ id: req.params.id }, function(err) {
     if(err) return res.json({ err: err }, 500);
     res.json({ status: 'ok' });
   });
@@ -187,7 +187,7 @@ app.put('/users/:id', function(req, res) {
   // Don't pass ID to update
   delete req.body.id;
 
-  app.models.User.update({ id: req.params.id }, req.body, function(err, model) {
+  app.models.user.update({ id: req.params.id }, req.body, function(err, model) {
     if(err) return res.json({ err: err }, 500);
     res.json(model);
   });
@@ -200,7 +200,10 @@ app.put('/users/:id', function(req, res) {
 //////////////////////////////////////////////////////////////////
 
 // Start Waterline passing adapters in
+
+
 orm.initialize(config, function(err, models) {
+
   if(err) throw err;
 
   app.models = models.collections;
