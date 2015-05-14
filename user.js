@@ -1,3 +1,4 @@
+var Waterline = require('waterline');
 var User = Waterline.Collection.extend({
 
   // Define a custom table name
